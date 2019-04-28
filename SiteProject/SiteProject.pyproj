@@ -38,6 +38,19 @@
     <Compile Include="app\__init__.py" />
     <Compile Include="app\migrations\__init__.py" />
     <Compile Include="manage.py" />
+    <Compile Include="profiles\admin.py" />
+    <Compile Include="profiles\apps.py" />
+    <Compile Include="profiles\customfields.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="profiles\migrations\__init__.py" />
+    <Compile Include="profiles\models.py" />
+    <Compile Include="profiles\tests.py" />
+    <Compile Include="profiles\urls.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="profiles\views.py" />
+    <Compile Include="profiles\__init__.py" />
     <Compile Include="SiteProject\__init__.py" />
     <Compile Include="SiteProject\settings.py" />
     <Compile Include="SiteProject\urls.py" />
@@ -53,11 +66,16 @@
     <Folder Include="app\static\app\scripts\" />
     <Folder Include="app\templates\" />
     <Folder Include="app\templates\app\" />
+    <Folder Include="profiles\" />
+    <Folder Include="profiles\migrations\" />
+    <Folder Include="profiles\templates\" />
+    <Folder Include="profiles\templates\profiles\" />
     <Folder Include="SiteProject\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="requirements.txt" />
     <Content Include="db.sqlite3" />
+    <Content Include="profiles\templates\profiles\index.html" />
+    <Content Include="requirements.txt" />
     <Content Include="app\static\app\content\bootstrap.css" />
     <Content Include="app\static\app\content\bootstrap.min.css" />
     <Content Include="app\static\app\content\site.css" />
