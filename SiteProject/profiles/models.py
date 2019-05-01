@@ -46,6 +46,15 @@ class AcademicDegree(models.Model):
 	def __str__(self):
 		return self.name
 
+class Group(models.Model):
+	leader = models.ForeignKey(User,on_delete=models.SET_NULL,null=True)
+
+	class Meta:
+		ordering = ['leader__username']
+
+	def __str__(self):
+		return self.leader.username
+
 class Profile(models.Model):
 	user = models.OneToOneField(User,on_delete=models.CASCADE, null=True)
 	patronymic = models.CharField(max_length=200, help_text='Введите отчество', null=True)
@@ -63,6 +72,7 @@ class Profile(models.Model):
 	YES_NO_CHOICES = (('да','да'),('нет','нет'))
 	third_check = models.CharField(max_length=3,choices=YES_NO_CHOICES,null=True)
 	conflict = models.CharField(max_length=3, choices=YES_NO_CHOICES,null=True)
+	group = models.ForeignKey(Group, on_delete=models.SET_NULL,null=True)
 
 	class Meta:
 		ordering = ['year_of_birth']
@@ -78,3 +88,4 @@ def create_user_profile(sender, instance, created, **kwargs):
 @receiver(post_save, sender=User)
 def save_user_profile(sender, instance, **kwargs):
     instance.profile.save()
+
