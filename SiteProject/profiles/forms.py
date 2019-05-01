@@ -8,7 +8,13 @@ from .models import Profile
 from django.contrib.admin.widgets import FilteredSelectMultiple
     
 class SelectProfileFieldsForm(forms.Form):
-	FIELD_CHOICES = [[f.name,f.verbose_name] for f in Profile._meta.get_fields()]
+	user_fields = {'first_name','last_name'}
+	user_other_fields = User._meta.get_fields()
+	FIELD_CHOICES = []
+	for f in user_other_fields:
+		if f.name in user_fields:
+			FIELD_CHOICES.append(['user__'+f.name,f.verbose_name])
+	FIELD_CHOICES += [[f.name,f.verbose_name] for f in Profile._meta.get_fields()]
 
 	fields_list = forms.MultipleChoiceField(widget=FilteredSelectMultiple('fields',is_stacked=False),choices=FIELD_CHOICES)
 

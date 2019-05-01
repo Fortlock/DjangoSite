@@ -42,7 +42,7 @@ def export_users_xls(request):
 			# Sheet body, remaining rows
 			font_style = xlwt.XFStyle()
 
-			rows = Profile.objects.all().values_list([a for a in fields])
+			rows = Profile.objects.all().values_list(*fields)
 			for row in rows:
 				row_num += 1
 				for col_num in range(len(row)):
