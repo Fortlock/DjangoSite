@@ -43,14 +43,11 @@
     <Compile Include="profiles\customfields.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="profiles\export\admin.py" />
     <Compile Include="profiles\export\apps.py" />
     <Compile Include="profiles\export\forms.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="profiles\export\migrations\__init__.py" />
-    <Compile Include="profiles\export\models.py" />
-    <Compile Include="profiles\export\tests.py" />
     <Compile Include="profiles\export\urls.py">
       <SubType>Code</SubType>
     </Compile>
@@ -61,7 +58,6 @@
     <Compile Include="profiles\export\export.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="profiles\tests.py" />
     <Compile Include="profiles\urls.py">
       <SubType>Code</SubType>
     </Compile>

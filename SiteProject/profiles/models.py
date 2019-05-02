@@ -1,7 +1,4 @@
 from django.db import models
-
-# Create your models here.
-
 from django.contrib.auth.models import User
 from profiles.customfields import IntegerRangeField
 from django.core.validators import RegexValidator
@@ -51,6 +48,7 @@ class Group(models.Model):
 
 	class Meta:
 		ordering = ['leader__username']
+		permissions = (('can_export_group','Can export group'),)
 
 	def __str__(self):
 		return self.leader.username
