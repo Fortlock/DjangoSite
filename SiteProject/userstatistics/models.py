@@ -1,11 +1,15 @@
 from django.db import models
+
+# Create your models here.
+
+from django.db import models
 from django.contrib.auth.models import User
 from profiles.customfields import IntegerRangeField
 
 # Create your models here.
 
 class Task(models.Model):
-	name = models.CharField(max_length=20, help_text="Введите название задачи")
+	name = models.CharField(max_length=20, help_text="Введите название задачи", unique = True)
 
 	class Meta:
 		ordering = ["name"]
@@ -15,7 +19,6 @@ class Task(models.Model):
 
 class Job(models.Model):
 	year = IntegerRangeField(min_value=2000, max_value=2100)
-	appraiser = models.ForeignKey(User,on_delete=models.CASCADE)
 
 	class Meta:
 		ordering = ["year"]
@@ -24,6 +27,7 @@ class Job(models.Model):
 		return self.appraiser.username
 
 class Score(models.Model):
+	appraiser = models.ForeignKey(User,on_delete=models.CASCADE)
 	task = models.ForeignKey(Task,on_delete=models.CASCADE)
 	score = IntegerRangeField(min_value=0, max_value=100)
 	job = models.ForeignKey(Job,on_delete=models.CASCADE)
@@ -34,4 +38,4 @@ class Score(models.Model):
 		ordering = ["score"]
 
 	def __str__(self):
-		return self.job.appraiser.username
+		return self.appraiser.username

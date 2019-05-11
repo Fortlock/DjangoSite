@@ -31,4 +31,5 @@ urlpatterns = [
 
 urlpatterns += [
 	path('profiles/', include('profiles.urls')),
+	path('statistics/', include('userstatistics.urls')),
 ]

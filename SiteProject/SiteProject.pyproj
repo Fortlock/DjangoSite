@@ -58,12 +58,6 @@
     <Compile Include="profiles\export\export.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="profiles\statistics\admin.py" />
-    <Compile Include="profiles\statistics\apps.py" />
-    <Compile Include="profiles\statistics\migrations\__init__.py" />
-    <Compile Include="profiles\statistics\models.py" />
-    <Compile Include="profiles\statistics\views.py" />
-    <Compile Include="profiles\statistics\__init__.py" />
     <Compile Include="profiles\urls.py">
       <SubType>Code</SubType>
     </Compile>
@@ -73,6 +67,29 @@
     <Compile Include="SiteProject\settings.py" />
     <Compile Include="SiteProject\urls.py" />
     <Compile Include="SiteProject\wsgi.py" />
+    <Compile Include="userstatistics\admin.py" />
+    <Compile Include="userstatistics\apps.py" />
+    <Compile Include="userstatistics\import\admin.py" />
+    <Compile Include="userstatistics\import\apps.py" />
+    <Compile Include="userstatistics\import\forms.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="userstatistics\import\simport.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="userstatistics\import\migrations\__init__.py" />
+    <Compile Include="userstatistics\import\urls.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="userstatistics\import\views.py" />
+    <Compile Include="userstatistics\import\__init__.py" />
+    <Compile Include="userstatistics\migrations\__init__.py" />
+    <Compile Include="userstatistics\models.py" />
+    <Compile Include="userstatistics\urls.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="userstatistics\views.py" />
+    <Compile Include="userstatistics\__init__.py" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="app\" />
@@ -90,19 +107,22 @@
     <Folder Include="profiles\export\templates\" />
     <Folder Include="profiles\export\templates\export\" />
     <Folder Include="profiles\migrations\" />
-    <Folder Include="profiles\statistics\" />
-    <Folder Include="profiles\statistics\migrations\" />
-    <Folder Include="profiles\statistics\templates\" />
-    <Folder Include="profiles\statistics\templates\statistics\" />
     <Folder Include="profiles\templates\" />
     <Folder Include="profiles\templates\profiles\" />
     <Folder Include="SiteProject\" />
+    <Folder Include="userstatistics\" />
+    <Folder Include="userstatistics\import\" />
+    <Folder Include="userstatistics\import\migrations\" />
+    <Folder Include="userstatistics\import\templates\" />
+    <Folder Include="userstatistics\import\templates\import\" />
+    <Folder Include="userstatistics\migrations\" />
+    <Folder Include="userstatistics\templates\" />
+    <Folder Include="userstatistics\templates\userstatistics\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="db.sqlite3" />
     <Content Include="profiles\export\templates\export\index.html" />
     <Content Include="profiles\export\templates\export\export_profiles.html" />
-    <Content Include="profiles\statistics\templates\statistics\index.html" />
     <Content Include="profiles\templates\profiles\index.html" />
     <Content Include="requirements.txt" />
     <Content Include="app\static\app\content\bootstrap.css" />
@@ -133,6 +153,8 @@
     <Content Include="app\templates\app\layout.html" />
     <Content Include="app\templates\app\login.html" />
     <Content Include="app\templates\app\loginpartial.html" />
+    <Content Include="userstatistics\import\templates\import\import_statistics.html" />
+    <Content Include="userstatistics\templates\userstatistics\index.html" />
   </ItemGroup>
   <ItemGroup>
     <None Include="readme.html">
