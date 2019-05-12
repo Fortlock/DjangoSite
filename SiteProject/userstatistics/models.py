@@ -2,6 +2,7 @@ from django.db import models, transaction, IntegrityError
 from django.contrib.auth.models import User
 from profiles.customfields import IntegerRangeField
 from django.core.exceptions import ObjectDoesNotExist
+import userstatistics.simport.randomusername
 
 class Task(models.Model):
 	name = models.CharField(max_length=20, help_text="Введите название задачи", unique = True)
@@ -19,7 +20,7 @@ class Job(models.Model):
 		ordering = ["year"]
 
 	def __str__(self):
-		return self.appraiser.username
+		return str(self.year)
 
 	
 
@@ -48,29 +49,33 @@ class Job(models.Model):
 			except ObjectDoesNotExist:
 				db_tasks.append(Task(name = col))
 		#create scores
-		db_scores = []
-		for i in range(0,len(scores)):
-			for j in range(1,len(row)):
-				if (isinstance(scores[i][j],float) or isinstance(scores[i][j],int)):
-					db_scores.append(Score(appraiser = users[i],job = db_job, task = db_tasks[j-1],score = scores[i][j],quality = '='))
-		#scores quality
-		if (len(users) == 3):
-			for score in db_scores:
-				if (score.appraiser == users[2]):
-					for slave_score in db_scores:
-						if (slave_score.task == score.task):
-							if (slave_score.score < score.score):
-								slave_score.quality = '-'
-							elif (slave_score.score > score.score):
-								slave_score.quality = '+'
-		#save job in one transaction
 		try:
 			with transaction.atomic():
 				for user in users:
-					user.save()
+					if (not user is None):
+						user.save()
 				db_job.save()
 				for task in db_tasks:
 					task.save()
+				db_scores = []
+				if (len(users) >= 2):
+					for i in range(0,2):
+						for j in range(1,len(row)):
+							if (isinstance(scores[i][j],float) and users[i]!=None):
+								my_score = int(scores[i][j])
+								db_scores.append(Score(appraiser = users[i],job = db_job, task = db_tasks[j-1],score = my_score,quality = '='))
+					if (len(users) == 3):
+						for j in range(1,len(row)):
+							if (isinstance(scores[2][j],float)):
+								my_score = int(scores[2][j])
+								for score in db_scores:
+									if (score.task == db_tasks[j-1]):
+										if (score.score < my_score):
+											score.quality = '-'
+										elif (score.score > my_score):
+											score.quality = '+'
+								if (users[2]!=None):
+									db_scores.append(Score(appraiser = users[2],job = db_job, task = db_tasks[j-1],score = my_score,quality = '='))
 				for score in db_scores:
 					if (score.appraiser != None):
 						score.save()

@@ -34,7 +34,7 @@ INSTALLED_APPS = [
     'profiles',
 	'profiles.export',
 	'userstatistics',
-	'userstatistics.import',
+	'userstatistics.simport',
     # Add your apps here to enable them
     'django.contrib.admin',
     'django.contrib.auth',

@@ -61,7 +61,6 @@
     <Compile Include="profiles\urls.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="profiles\views.py" />
     <Compile Include="profiles\__init__.py" />
     <Compile Include="SiteProject\__init__.py" />
     <Compile Include="SiteProject\settings.py" />
@@ -69,29 +68,27 @@
     <Compile Include="SiteProject\wsgi.py" />
     <Compile Include="userstatistics\admin.py" />
     <Compile Include="userstatistics\apps.py" />
-    <Compile Include="userstatistics\import\admin.py" />
-    <Compile Include="userstatistics\import\apps.py" />
-    <Compile Include="userstatistics\import\forms.py">
+    <Compile Include="userstatistics\simport\apps.py" />
+    <Compile Include="userstatistics\simport\forms.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="userstatistics\import\randomusername.py">
+    <Compile Include="userstatistics\simport\randomusername.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="userstatistics\import\simport.py">
+    <Compile Include="userstatistics\simport\simport.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="userstatistics\import\migrations\__init__.py" />
-    <Compile Include="userstatistics\import\urls.py">
+    <Compile Include="userstatistics\simport\migrations\__init__.py" />
+    <Compile Include="userstatistics\simport\urls.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="userstatistics\import\views.py" />
-    <Compile Include="userstatistics\import\__init__.py" />
+    <Compile Include="userstatistics\simport\views.py" />
+    <Compile Include="userstatistics\simport\__init__.py" />
     <Compile Include="userstatistics\migrations\__init__.py" />
     <Compile Include="userstatistics\models.py" />
     <Compile Include="userstatistics\urls.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="userstatistics\views.py" />
     <Compile Include="userstatistics\__init__.py" />
   </ItemGroup>
   <ItemGroup>
@@ -110,23 +107,17 @@
     <Folder Include="profiles\export\templates\" />
     <Folder Include="profiles\export\templates\export\" />
     <Folder Include="profiles\migrations\" />
-    <Folder Include="profiles\templates\" />
-    <Folder Include="profiles\templates\profiles\" />
     <Folder Include="SiteProject\" />
     <Folder Include="userstatistics\" />
-    <Folder Include="userstatistics\import\" />
-    <Folder Include="userstatistics\import\migrations\" />
-    <Folder Include="userstatistics\import\templates\" />
-    <Folder Include="userstatistics\import\templates\import\" />
+    <Folder Include="userstatistics\simport\" />
+    <Folder Include="userstatistics\simport\migrations\" />
+    <Folder Include="userstatistics\simport\templates\" />
+    <Folder Include="userstatistics\simport\templates\simport\" />
     <Folder Include="userstatistics\migrations\" />
-    <Folder Include="userstatistics\templates\" />
-    <Folder Include="userstatistics\templates\userstatistics\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="db.sqlite3" />
-    <Content Include="profiles\export\templates\export\index.html" />
     <Content Include="profiles\export\templates\export\export_profiles.html" />
-    <Content Include="profiles\templates\profiles\index.html" />
     <Content Include="requirements.txt" />
     <Content Include="app\static\app\content\bootstrap.css" />
     <Content Include="app\static\app\content\bootstrap.min.css" />
@@ -156,8 +147,7 @@
     <Content Include="app\templates\app\layout.html" />
     <Content Include="app\templates\app\login.html" />
     <Content Include="app\templates\app\loginpartial.html" />
-    <Content Include="userstatistics\import\templates\import\import_statistics.html" />
-    <Content Include="userstatistics\templates\userstatistics\index.html" />
+    <Content Include="userstatistics\simport\templates\simport\import_statistics.html" />
   </ItemGroup>
   <ItemGroup>
     <None Include="readme.html">

@@ -14,4 +14,4 @@ def import_statistics_xls(request):
 		return HttpResponseRedirect('/')
 	else:
 		form = ImportExcel()
-		return render(request, 'import/import_statistics.html', {'form': form,})
+		return render(request, 'simport/import_statistics.html', {'form': form,})
