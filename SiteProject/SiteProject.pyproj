@@ -74,6 +74,9 @@
     <Compile Include="userstatistics\import\forms.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="userstatistics\import\randomusername.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="userstatistics\import\simport.py">
       <SubType>Code</SubType>
     </Compile>
